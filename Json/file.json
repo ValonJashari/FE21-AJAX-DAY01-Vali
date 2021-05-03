@@ -1,0 +1,16 @@
+let books = 
+[
+    {
+        "id":"01",
+        "language": "Javascript",
+        "editon": "fifth",
+        "author": "CodeFactory"
+
+    },
+    {
+        "id"; "02",
+        "language": "Pyython",
+        "edition": "sixth",
+        "author": "V.Jashari"
+    }
+]

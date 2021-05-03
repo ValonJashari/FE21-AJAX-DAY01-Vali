@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body >
+<div id="teDajt" >
+<h1>The XMLHttpRequest Object</h1>
+<button type="button"  onclick="loadDoc()">A New Web page Content here </button >
+</div>
+<script>
+function loadDoc() 
+{
+    let xhttp = new XMLHttpRequest();
+    xhttp.onload = function() 
+        {
+            if (this.status == 200 ) 
+                {
+                    document.getElementById("teDajt ").innerHTML =
+                    this.responseText;
+                }
+        };
+    // This part is used to send the request ot the server
+    //for the XMLHttpRequest object are used: open() and send()
+    //open(method, url, async)
+    xhttp.open("GET", "your_doc.txt" , true); 
+    xhttp.send();
+}
+</script>
+</body>
+</html>

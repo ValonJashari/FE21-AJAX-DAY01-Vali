@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head >
+   <title>Working with XML</title >
+</head>
+
+<body >
+   <h1>Favourite Songs</h1 >
+   <button type="button"   onclick="loadData()">Get my Favourite Songs </button >
+   <br>
+   <br>
+   <div id = "content"></div>
+   <script >
+   function loadData() {
+       var  xhttp = new XMLHttpRequest();
+       xhttp.onload = function() {
+            if (this.status == 200) {
+               myFunction( this);
+           }
+       };
+       xhttp.open("GET" , "favourite_songs.xml", true);
+       xhttp.send();
+   }
+    function myFunction(xml) {
+       let xmlDoc = xml.responseXML;
+        let x = xmlDoc.getElementsByTagName("record"); //this will create an array with all albums
+       let content=document.getElementById( "content");//we save the div#content in a variable
+        for (let i = 0; i < x.length; i++) {
+           content.innerHTML +=   //within the content div, we want to show the following:
+               "<h1>" +
+             "Artist Name:  " +   x[i].getElementsByTagName("artist")[ 0].childNodes[0].nodeValue  + "</h1>  "  +
+             "Title:  " +    x[i].getElementsByTagName("title")[ 0].childNodes[0].nodeValue + " <br>"  +
+             "Genre:  " +    x[i].getElementsByTagName("genre" )[0].childNodes[0].nodeValue + "<br> " +
+             "Country:  " +    x[i].getElementsByTagName("country" )[0].childNodes[0].nodeValue + "<br> " +
+             "Year:  " +    x[i].getElementsByTagName("year" )[0].childNodes[0].nodeValue + "<br> "
+              ; //targeting the array of the tag name artist, accessing their child node and the value within that node
+
+//targeting the array of tag name title, accessing their child node and the value within that node
+
+//targeting the array of tag name description, accessing their child node and the value within that node
+       }
+   }
+   </script>
+</body>
+</html >
